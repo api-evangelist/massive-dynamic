@@ -1,7 +1,27 @@
 aid: massive-dynamic
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/massive-dynamic.png
 name: Massive Dynamic
-description: Massive Dynamic is a company surfaced as a portfolio company of seedcamp and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: Massive Dynamic is an AI-powered advertising platform that bills itself as "The Advertising
+  Copilot" and "the human-AI interface for massive scale." It helps media and advertising teams coordinate
+  large-scale digital ad campaigns by pairing an AI Analysis Copilot (automating daily analytics checks,
+  quarterly business reviews, and Media Mix Modeling) with Execution Delegation, where an AI agent handles
+  operational campaign setup so strategists can focus on decisions. The tool works inside existing Slack
+  and email workflows as a conduit between strategy and activation teams, and emphasizes enterprise-grade
+  data governance with ring-fenced customer data and an explicit commitment not to use customer data to
+  train or improve models. The company was surfaced as a Seedcamp portfolio company and added to the API
+  Evangelist network; as of this enrichment pass it publishes no public API, developer documentation, or
+  SDKs.
 url: https://raw.githubusercontent.com/api-evangelist/massive-dynamic/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,9 +31,17 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
+- Advertising
+- Advertising Technology
+- Artificial Intelligence
+- Marketing
+- Media
+- Analytics
+- Automation
+- Agents
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -22,4 +50,13 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: http://massive-dynamic.ai
+  url: https://massive-dynamic.ai
+- type: Careers
+  url: https://massive-dynamic.notion.site/
+- type: DomainSecurity
+  url: security/massive-dynamic-domain-security.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: minimal
+  artifacts_added: 1
+  pass: local-v1
