@@ -1,0 +1,19 @@
+generated: '2026-08-12'
+method: searched
+source: https://massive-dynamic.ai
+plan_count: 0
+model: contact-sales
+note: >-
+  Massive Dynamic publishes no pricing page and no plans. The marketing site
+  (massive-dynamic.ai) has a single commercial call to action — "Request a demo" — plus
+  the address hi@massive-dynamic.ai, and the company describes itself as working with
+  "a select group of early design partners". Direct probes of /pricing, /plans and /terms
+  on the marketing host all returned 404. Nothing about tiers, quotas, overages or limits
+  is published, so plan_count is an honest zero rather than an omission.
+evidence:
+- url: https://massive-dynamic.ai
+  status: 200
+  finding: '"Request a demo" CTA and hi@massive-dynamic.ai; no pricing anywhere on the page'
+- url: https://massive-dynamic.ai/pricing
+  status: 404
+plans: []

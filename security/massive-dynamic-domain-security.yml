@@ -1,11 +1,11 @@
-generated: '2026-07-20'
+generated: '2026-08-12'
 method: probed
 source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
 hosts:
 - host: massive-dynamic.ai
   https: true
   tls_version: TLSv1.3
-  cert_expires: Sep 22 06:03:37 2026 GMT
+  cert_expires: Feb 17 06:07:03 2027 GMT
   hsts: null
 domains:
 - domain: massive-dynamic.ai

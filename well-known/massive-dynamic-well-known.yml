@@ -1,0 +1,130 @@
+generated: '2026-08-12'
+method: probed
+source: live GET of /.well-known/* on every Massive Dynamic host resolved from DNS + certificate transparency
+note: >-
+  Nothing was found. Every /.well-known/ path on the marketing host (massive-dynamic.ai,
+  a Figma Sites page) and on the product API host (api.massive-dynamic.ai, an Express
+  service that answers "Cannot GET /" for every path) returned 404. The product app host
+  (app.massive-dynamic.ai, a Next.js single-page app behind a Google sign-in screen)
+  answers 200 with the SAME HTML application shell for EVERY /.well-known/ path, including
+  paths that cannot exist — that is an SPA catch-all, not a served document, so it is
+  recorded as a miss. No WellKnown or SecurityTxt pointer is emitted in apis.yml, because
+  this file documents an absence, not a presence.
+hosts:
+- host: https://massive-dynamic.ai
+  role: marketing site (Figma Sites)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+  - path: /robots.txt
+    status: 404
+  - path: /sitemap.xml
+    status: 404
+  - path: /openapi.json
+    status: 404
+- host: https://api.massive-dynamic.ai
+  role: product API host (Express; "Cannot GET /" on every path, no public routes)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /openapi.json
+    status: 404
+  - path: /openapi.yaml
+    status: 404
+  - path: /swagger.json
+    status: 404
+  - path: /v1/openapi.json
+    status: 404
+  - path: /api-docs
+    status: 404
+  - path: /docs
+    status: 404
+  - path: /redoc
+    status: 404
+  - path: /graphql
+    status: 404
+  - path: /mcp
+    status: 404
+- host: https://app.massive-dynamic.ai
+  role: product web app (Next.js on Firebase Hosting, Google sign-in)
+  spa_catch_all: true
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/html
+    document: false
+    note: SPA shell, not a document
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: text/html
+    document: false
+    note: SPA shell, not a document
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: text/html
+    document: false
+    note: SPA shell, not a document
+  - path: /.well-known/api-catalog
+    status: 200
+    content_type: text/html
+    document: false
+    note: SPA shell, not a document
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    content_type: text/html
+    document: false
+    note: SPA shell, not a document
+  - path: /openapi.json
+    status: 200
+    content_type: text/html
+    document: false
+    note: SPA shell, not a document
+  - path: /llms.txt
+    status: 200
+    content_type: text/html
+    document: false
+    note: SPA shell, not a document
+- host: https://dev-api.massive-dynamic.ai
+  role: pre-production API host (same Express service; not a published surface)
+  documents:
+  - path: /
+    status: 404
+  - path: /openapi.json
+    status: 404
+  - path: /swagger.json
+    status: 404
+  - path: /api-docs
+    status: 404
+  - path: /docs
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+documents_found: 0

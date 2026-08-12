@@ -19,9 +19,15 @@ description: Massive Dynamic is an AI-powered advertising platform that bills it
   operational campaign setup so strategists can focus on decisions. The tool works inside existing Slack
   and email workflows as a conduit between strategy and activation teams, and emphasizes enterprise-grade
   data governance with ring-fenced customer data and an explicit commitment not to use customer data to
-  train or improve models. The company was surfaced as a Seedcamp portfolio company and added to the API
-  Evangelist network; as of this enrichment pass it publishes no public API, developer documentation, or
-  SDKs.
+  train or improve models. Founded in Paris in 2025 by Trystan Chabert (formerly Head of Growth at Voodoo)
+  and Guillaume le Roy (formerly Head of Engineering at Qonto), the company raised a roughly EUR 3M pre-seed
+  led by Seedcamp in July 2025, with Founders Future, Kima Ventures and others participating, and is
+  deployed with a select group of early design partners. It sells its product as an end-user application —
+  the marketing site is a Figma Sites page whose only call to action is "Request a demo", and the product
+  itself is a login-gated web app at app.massive-dynamic.ai. As of the 2026-08-12 enrichment pass Massive
+  Dynamic publishes no public API, no developer documentation, no SDKs, and no machine-readable contract of
+  any kind — every OpenAPI, GraphQL, MCP, agent-card and /.well-known/ probe against its marketing, API and
+  app hosts returned 404 or an application shell.
 url: https://raw.githubusercontent.com/api-evangelist/massive-dynamic/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -31,7 +37,7 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-20'
+modified: '2026-08-12'
 tags:
 - Company
 - Advertising
@@ -55,8 +61,37 @@ common:
   url: https://massive-dynamic.notion.site/
 - type: DomainSecurity
   url: security/massive-dynamic-domain-security.yml
+- type: Login
+  url: https://app.massive-dynamic.ai
+- type: LLMsTxt
+  url: llms/massive-dynamic-llms.txt
+- type: Plans
+  url: plans/massive-dynamic-plans-pricing.yml
 x-enrichment:
-  date: '2026-07-20'
+  date: '2026-08-12'
   status: minimal
-  artifacts_added: 1
+  artifacts_added: 3
   pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Massive Dynamic ships only an end-user product — a login-gated Next.js app at
+    app.massive-dynamic.ai titled "Quantum One" backed by a private Express service at
+    api.massive-dynamic.ai that answers "Cannot GET /" for every path including
+    /openapi.json, /graphql and /mcp — and its Figma Sites marketing page offers no
+    developer link at all, only a "Request a demo" button.
+  evidence:
+  - url: https://api.massive-dynamic.ai/openapi.json
+    status: 404
+  - url: https://api.massive-dynamic.ai/
+    status: 404
+  - url: https://massive-dynamic.ai/llms.txt
+    status: 404
+  - url: https://massive-dynamic.ai/.well-known/agent-card.json
+    status: 404
+  - url: https://massive-dynamic.ai/privacy
+    status: 404
+  - url: https://app.massive-dynamic.ai/
+    status: 200
+  checked: '2026-08-12'
